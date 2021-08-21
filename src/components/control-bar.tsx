@@ -12,19 +12,26 @@ const Container = styled('div', {
 const Title = styled('h1', {
   fontWeight: 'bold',
   fontSize: 'xx-large',
-  borderBottom: '2px solid $gray6',
   textTransform: 'capitalize',
-  marginBottom: '15px'
+  marginBottom: '10px'
+})
+
+const Divider = styled('div', {
+  width: '100%',
+  height: '2px',
+  backgroundColor: '$gray6'
 })
 
 const Today = styled('p', {
+  marginTop: '5px',
   color: '$gray11'
 })
 
 const ControlBar = () => {
   return (
     <Container>
-      <Title>Daftar hari libur nasional</Title>
+      <Title>Daftar hari libur nasional 🇮🇩</Title>
+      <Divider />
       <Today>Hari ini: {today()}</Today>
     </Container>
   )

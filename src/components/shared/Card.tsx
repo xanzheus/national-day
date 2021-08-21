@@ -50,3 +50,8 @@ export const SectionHeader = styled('h2', {
   margin: '1rem 0',
   fontWeight: 'bold'
 })
+
+export const Month = styled('h3', {
+  marginBottom: '.3rem',
+  fontSize: 'large'
+})

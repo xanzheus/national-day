@@ -6,8 +6,9 @@ import { styled } from 'stitches.config'
 import NextHolidays from '@components/next-holidays'
 import ControlBar from '@components/control-bar'
 import dataExtractor from 'src/utils/data-extractor'
+import Credits from '@components/credit'
 
-const Container = styled('div', {
+const Container = styled('main', {
   minHeight: '100vh',
   padding: '1rem 0',
   display: 'flex',
@@ -31,17 +32,20 @@ const Home: NextPage<{ data: APIResult[] }> = ({ data }) => {
   const extractedData = dataExtractor(data)
 
   return (
-    <Container>
-      <Head>
-        <title>Hari Libur :)</title>
-        <meta name="description" content="Daftar hari libur nasional." />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <Container>
+        <Head>
+          <title>Hari Libur ✨</title>
+          <meta name="description" content="Daftar hari libur nasional." />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <ControlBar />
-      <UpcomingHolidays upcomings={extractedData?.upcomings} />
-      <NextHolidays nextMonths={extractedData?.nextMonths} />
-    </Container>
+        <ControlBar />
+        <UpcomingHolidays upcomings={extractedData?.upcomings} />
+        <NextHolidays nextMonths={extractedData?.nextMonths} />
+      </Container>
+      <Credits />
+    </>
   )
 }
 
