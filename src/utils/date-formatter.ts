@@ -18,3 +18,9 @@ export const toMonth = (date: string) => {
 
   return format(_date, 'MMMM', { locale: id })
 }
+
+export const today = () => {
+  const _date = new Date()
+
+  return format(_date, 'EEEE, d MMMM yyyy', { locale: id })
+}

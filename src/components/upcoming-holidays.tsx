@@ -7,7 +7,7 @@ const UpcomingHolidays: React.FC<{ upcomings: APIResult[] }> = ({ upcomings }) =
 
   return (
     <GridWrapper>
-      <SectionHeader>Bulan ini</SectionHeader>
+      <SectionHeader>Bulan Ini</SectionHeader>
       {filteredHolidays?.map(holiday => (
         <Card key={holiday.holiday_name}>
           <CardSider>

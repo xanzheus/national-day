@@ -6,13 +6,17 @@ export const GridWrapper = styled('section', {
   maxWidth: '32rem', // screen lg
   margin: '0 auto',
   width: '100%',
-  gap: '.5rem'
+  gap: '.5rem',
+  backgroundColor: '$gray2',
+  padding: '1rem',
+  borderRadius: '3px',
+  boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
 })
 
 export const Card = styled('div', {
   width: '100%',
   display: 'flex',
-  backgroundColor: '$gray6',
+  backgroundColor: '$gray3',
   borderRadius: '4px',
   boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'
 })
@@ -38,8 +42,7 @@ export const CardSider = styled('div', {
   alignItems: 'center',
   flexDirection: 'column',
   padding: '.3rem',
-  width: '15%',
-  backgroundColor: '$gray2'
+  width: '15%'
 })
 
 export const SectionHeader = styled('h2', {

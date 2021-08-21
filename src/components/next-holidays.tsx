@@ -1,4 +1,3 @@
-import { format } from 'date-fns'
 import { APIResult } from 'pages'
 import { toDateDay, toDateNumber, toMonth } from 'src/utils/date-formatter'
 import { styled } from 'stitches.config'
@@ -14,7 +13,7 @@ const NextHolidays: React.FC<{ nextMonths: APIResult[] }> = ({ nextMonths }) => 
 
   return (
     <GridWrapper css={{ margin: '2rem auto' }}>
-      <SectionHeader>Bulan depan</SectionHeader>
+      <SectionHeader>Bulan Depan</SectionHeader>
       {filteredHolidays?.map(holiday => (
         <>
           <Month>{toMonth(holiday.holiday_date)}</Month>
