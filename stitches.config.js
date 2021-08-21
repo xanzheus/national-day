@@ -1,14 +1,14 @@
-import { red, gray } from '@radix-ui/colors'
+import { red, grayDark } from '@radix-ui/colors'
 import { createCss } from '@stitches/react'
 
 export const { getCssString, styled, global } = createCss({
   theme: {
     colors: {
-      hiContrast: gray.gray11,
-      lowContrast: gray.gray12,
+      hiContrast: grayDark.gray11,
+      lowContrast: grayDark.gray12,
 
       ...red,
-      ...gray
+      ...grayDark
     }
   },
   media: {

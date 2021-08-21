@@ -2,9 +2,10 @@ import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 
 import UpcomingHolidays from '@components/upcoming-holidays'
-import { global, styled } from 'stitches.config'
+import { styled } from 'stitches.config'
 import NextHolidays from '@components/next-holidays'
 import ControlBar from '@components/control-bar'
+import dataExtractor from 'src/utils/data-extractor'
 
 const Container = styled('div', {
   minHeight: '100vh',
@@ -20,45 +21,14 @@ export interface APIResult {
   is_national_holiday: boolean
 }
 
-export interface Data {
-  upcomings: APIResult[]
-  nextMonths: APIResult[]
-  previousMonths: APIResult[]
-}
-
 export const getStaticProps: GetStaticProps = async () => {
-  const apiResult = (await (await fetch('https://api-harilibur.vercel.app/api')).json()) as APIResult[]
-
-  const data: Data = {
-    upcomings: [],
-    nextMonths: [],
-    previousMonths: []
-  }
-
-  const thisMonth = new Date().getMonth() + 1
-  apiResult.filter(res => {
-    const formattedHolidayMonth = new Date(res.holiday_date).getMonth() + 1
-
-    if (formattedHolidayMonth === thisMonth) {
-      data.upcomings.push(res)
-    } else if (formattedHolidayMonth > thisMonth) {
-      data.nextMonths.push(res)
-    } else {
-      data.previousMonths.push(res)
-    }
-  })
+  const data = (await (await fetch('https://api-harilibur.vercel.app/api')).json()) as APIResult[]
 
   return { props: { data } }
 }
 
-const Home: NextPage<{ data: Data }> = ({ data }) => {
-  global({
-    '#__next': {
-      color: '$gray12',
-      backgroundColor: '$gray1',
-      backgroundImage: `url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e2e2e2' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");`
-    }
-  })()
+const Home: NextPage<{ data: APIResult[] }> = ({ data }) => {
+  const extractedData = dataExtractor(data)
 
   return (
     <Container>
@@ -69,8 +39,8 @@ const Home: NextPage<{ data: Data }> = ({ data }) => {
       </Head>
 
       <ControlBar />
-      <UpcomingHolidays upcomings={data?.upcomings} />
-      <NextHolidays nextMonths={data?.nextMonths} />
+      <UpcomingHolidays upcomings={extractedData?.upcomings} />
+      <NextHolidays nextMonths={extractedData?.nextMonths} />
     </Container>
   )
 }
