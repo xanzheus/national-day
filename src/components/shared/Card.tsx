@@ -32,13 +32,17 @@ export const DateDay = styled('p', {
   fontSize: 'small'
 })
 
-export const DateNumber = styled('div', {
-  fontSize: 'xx-large',
+export const DateNumber = styled('span', {
+  fontSize: 'large',
+  '@md': {
+    fontSize: 'xx-large'
+  },
   fontWeight: 'bold'
 })
 
 export const CardSider = styled('div', {
   display: 'flex',
+  justifyContent: 'center',
   alignItems: 'center',
   flexDirection: 'column',
   padding: '.3rem',

@@ -6,13 +6,12 @@ const Footer = styled('footer', {
   backgroundColor: '$gray2',
   borderTop: '1px solid $gray6',
   display: 'flex',
-  flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center'
 })
 
 const Link = styled('a', {
-  textDecoration: 'underline',
+  borderBottom: '1px dotted',
   '&:hover': {
     color: '$gray11'
   }
@@ -21,19 +20,12 @@ const Link = styled('a', {
 const Credits = () => {
   return (
     <Footer>
-      <div>
-        <p>
-          Data didapatkan dari{' '}
-          <Link href="https://api-harilibur.vercel.app/" title="Link to website">
-            API
-          </Link>
-        </p>
-      </div>
-      <div style={{ marginTop: '.5rem' }}>
-        <Link href="https://github.com/kalwabed/harilibur" title="Github repository">
-          Kontribusi
-        </Link>
-      </div>
+      <Link css={{ marginRight: '.5rem' }} href="https://api-harilibur.vercel.app/" title="Link to website">
+        Sumber data
+      </Link>
+      <Link href="https://github.com/kalwabed/harilibur" title="Github repository">
+        Kontribusi
+      </Link>
     </Footer>
   )
 }

@@ -1,6 +1,5 @@
 import { APIResult } from 'pages'
 import { toDateDay, toDateNumber, toMonth } from 'src/utils/date-formatter'
-import { styled } from 'stitches.config'
 import { Card, CardBody, CardSider, DateDay, DateNumber, GridWrapper, Month, SectionHeader } from './shared/Card'
 
 const NextHolidays: React.FC<{ nextMonths: APIResult[] }> = ({ nextMonths }) => {

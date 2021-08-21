@@ -1,20 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next'
-import Head from 'next/head'
 
 import UpcomingHolidays from '@components/upcoming-holidays'
-import { styled } from 'stitches.config'
 import NextHolidays from '@components/next-holidays'
-import ControlBar from '@components/control-bar'
 import dataExtractor from 'src/utils/data-extractor'
-import Credits from '@components/credit'
-
-const Container = styled('main', {
-  minHeight: '100vh',
-  padding: '1rem 0',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center'
-})
 
 export interface APIResult {
   holiday_date: string
@@ -33,18 +21,8 @@ const Home: NextPage<{ data: APIResult[] }> = ({ data }) => {
 
   return (
     <>
-      <Container>
-        <Head>
-          <title>Hari Libur ✨</title>
-          <meta name="description" content="Daftar hari libur nasional." />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
-        <ControlBar />
-        <UpcomingHolidays upcomings={extractedData?.upcomings} />
-        <NextHolidays nextMonths={extractedData?.nextMonths} />
-      </Container>
-      <Credits />
+      <UpcomingHolidays upcomings={extractedData?.upcomings} />
+      <NextHolidays nextMonths={extractedData?.nextMonths} />
     </>
   )
 }
