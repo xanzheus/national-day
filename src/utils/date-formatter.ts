@@ -1,4 +1,4 @@
-import { format } from 'date-fns'
+import { format, isAfter } from 'date-fns'
 import { id } from 'date-fns/locale'
 
 export const toDateNumber = (date: string) => {
@@ -23,4 +23,11 @@ export const today = () => {
   const _date = new Date()
 
   return format(_date, 'EEEE, d MMMM yyyy', { locale: id })
+}
+
+export const isAfterEvent = (event: string) => {
+  const today = new Date()
+  const eventDate = new Date(event)
+
+  return isAfter(today, eventDate)
 }

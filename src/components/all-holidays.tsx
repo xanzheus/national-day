@@ -1,4 +1,3 @@
-import { format } from 'date-fns'
 import { toDateDay, toDateNumber, toMonth } from 'src/utils/date-formatter'
 import { APIResult } from 'src/utils/fetcher'
 import {
@@ -16,7 +15,7 @@ import {
 const AllHolidays = ({ holidays }: { holidays: APIResult[] }) => {
   const filteredHolidays = holidays.filter(holiday => holiday.is_national_holiday)
 
-  const holidayResult = {}
+  const holidayResult: { [month: string]: APIResult[] } = {}
 
   filteredHolidays.map(holiday => {
     const month = toMonth(holiday.holiday_date)
@@ -26,7 +25,7 @@ const AllHolidays = ({ holidays }: { holidays: APIResult[] }) => {
   })
 
   return (
-    <GridWrapper>
+    <GridWrapper css={{ margin: '2rem auto' }}>
       <SectionHeader>2022</SectionHeader>
       {Object.keys(holidayResult)?.map((month, index) => {
         return (

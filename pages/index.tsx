@@ -12,8 +12,6 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { data } }
 }
 
-// TODO: add empty state
-
 const Home: NextPage<{ data: APIResult[] }> = ({ data }) => {
   const extractedData = dataExtractor(data)
 
