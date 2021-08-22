@@ -3,18 +3,16 @@ import type { GetStaticProps, NextPage } from 'next'
 import UpcomingHolidays from '@components/upcoming-holidays'
 import NextHolidays from '@components/next-holidays'
 import dataExtractor from 'src/utils/data-extractor'
-
-export interface APIResult {
-  holiday_date: string
-  holiday_name: string
-  is_national_holiday: boolean
-}
+import Navigation from '@components/navigation'
+import { APIResult, getHolidays } from 'src/utils/fetcher'
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = (await (await fetch('https://api-harilibur.vercel.app/api')).json()) as APIResult[]
+  const data = await getHolidays()
 
   return { props: { data } }
 }
+
+// TODO: add empty state
 
 const Home: NextPage<{ data: APIResult[] }> = ({ data }) => {
   const extractedData = dataExtractor(data)
@@ -23,6 +21,7 @@ const Home: NextPage<{ data: APIResult[] }> = ({ data }) => {
     <>
       <UpcomingHolidays upcomings={extractedData?.upcomings} />
       <NextHolidays nextMonths={extractedData?.nextMonths} />
+      <Navigation type="now" />
     </>
   )
 }

@@ -1,6 +1,16 @@
-import { APIResult } from 'pages'
 import { toDateDay, toDateNumber, toMonth } from 'src/utils/date-formatter'
-import { Card, CardBody, CardSider, DateDay, DateNumber, GridWrapper, Month, SectionHeader } from './shared/Card'
+import { APIResult } from 'src/utils/fetcher'
+import {
+  Card,
+  CardBody,
+  CardSider,
+  DateDay,
+  DateNumber,
+  GridWrapper,
+  Month,
+  MonthWrapper,
+  SectionHeader
+} from './shared/Card'
 
 const NextHolidays: React.FC<{ nextMonths: APIResult[] }> = ({ nextMonths }) => {
   const filteredHolidays = nextMonths?.filter(upcome => upcome.is_national_holiday)
@@ -9,7 +19,7 @@ const NextHolidays: React.FC<{ nextMonths: APIResult[] }> = ({ nextMonths }) => 
     <GridWrapper css={{ margin: '2rem auto' }}>
       <SectionHeader>Bulan Depan</SectionHeader>
       {filteredHolidays?.map(holiday => (
-        <div style={{ marginTop: '.3rem' }} key={holiday.holiday_name}>
+        <MonthWrapper key={holiday.holiday_name}>
           <Month>{toMonth(holiday.holiday_date)}</Month>
           <Card>
             <CardSider>
@@ -18,7 +28,7 @@ const NextHolidays: React.FC<{ nextMonths: APIResult[] }> = ({ nextMonths }) => 
             </CardSider>
             <CardBody>{holiday.holiday_name}</CardBody>
           </Card>
-        </div>
+        </MonthWrapper>
       ))}
     </GridWrapper>
   )
