@@ -1,4 +1,4 @@
-import { APIResult } from 'pages'
+import { APIResult } from './fetcher'
 
 interface Data {
   upcomings: APIResult[]
