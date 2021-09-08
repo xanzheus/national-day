@@ -1,7 +1,7 @@
 import { red, grayDark } from '@radix-ui/colors'
-import { createCss } from '@stitches/react'
+import { createStitches } from '@stitches/react'
 
-export const { getCssString, styled, global } = createCss({
+export const { getCssText, styled, globalCss } = createStitches({
   theme: {
     colors: {
       hiContrast: grayDark.gray11,

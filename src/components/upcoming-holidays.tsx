@@ -10,7 +10,7 @@ const UpcomingHolidays: React.FC<{ upcomings: APIResult[] }> = ({ upcomings }) =
       <SectionHeader>Bulan Ini</SectionHeader>
       {filteredHolidays.length === 0 && (
         <Card>
-          <CardBody css={{ color: '$gray11' }}>Tidak ada</CardBody>
+          <CardBody css={{ color: '$gray11', width: '100%' }}>Tidak ada</CardBody>
         </Card>
       )}
       {filteredHolidays?.map(holiday => (
