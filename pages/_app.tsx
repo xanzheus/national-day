@@ -14,6 +14,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>National Day 🇮🇩</title>
         <meta name="description"
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="https://ibb.co/hMg0ggY" />
          content="Daftar Hari Libur Nasional." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
