@@ -23,8 +23,11 @@ const Credits = () => {
       <Link css={{ marginRight: '.5rem' }} href="https://api-harilibur.vercel.app/" title="Link to website">
         Sumber data
       </Link>
-      <Link href="https://github.com/kalwabed/harilibur" title="Github repository">
+      <Link href="https://national-day.vercel.app" title="Github repository">
         Kontribusi
+      </Link>
+      <Link href="https://instagram.com/itspapoy" title="Github repository">
+        Credit
       </Link>
     </Footer>
   )
