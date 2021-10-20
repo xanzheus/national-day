@@ -12,8 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Head>
-        <title>Hari Libur ✨</title>
-        <meta name="description" content="Daftar hari libur nasional." />
+        <title>National Day 🇮🇩</title>
+        <meta name="description"
+         content="Daftar Hari Libur Nasional." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ControlBar />
