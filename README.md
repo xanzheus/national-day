@@ -1,7 +1,7 @@
-# harilibur
+# National Day
 Daftar hari libur nasional. Mager cek hari libur nasional di kalender. 
 
-Kunjungi https://harilibur.vercel.app.
+Kunjungi https://national-day.vercel.app.
 
 Dibuat menggunakan:
 - Typescript
